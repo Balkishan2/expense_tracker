@@ -1,6 +1,7 @@
 {
   "name": "expense_tracker_app",
   "private": true,
+  "homepage": "https://balkishan2.github.io/expense_tracker",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
