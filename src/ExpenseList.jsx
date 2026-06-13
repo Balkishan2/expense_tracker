@@ -9,37 +9,39 @@ export default function ExpenseList({ expenses, onDeleteExpense }) {
     return (
       <section className="card">
         <h2>Expense</h2>
-        <table className="expense-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Amount (₹)</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {expenses.map((expense) => (
-              <tr key={expense.id}>
-                <td>{expense.date}</td>
-                <td>{expense.title}</td>
-                <td>{expense.category}</td>
-                <td>{expense.amount}</td>
-                <td>
-                  <button className="edit-btn" onClick={() => navigate(`/edit/${expense.id}`)}>Edit</button>
-                  <button className="delete-btn" onClick={() => onDeleteExpense(expense.id)}>Delete</button>
-                </td>
+        <div className="table-responsive">
+          <table className="expense-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Amount (₹)</th>
+                <th>Action</th>
               </tr>
-            ))}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colSpan={3}>Total :</td>
-                        <td>{ expenses.reduce((sum,expense) => Number(sum) + Number(expense.amount) , 0) }</td>
-                    </tr>
-                </tfoot>
-        </table>
+            </thead>
+            <tbody>
+              {expenses.map((expense) => (
+                <tr key={expense.id}>
+                  <td>{expense.date}</td>
+                  <td>{expense.title}</td>
+                  <td>{expense.category}</td>
+                  <td>{expense.amount}</td>
+                  <td>
+                    <button className="edit-btn" onClick={() => navigate(`/edit/${expense.id}`)}>Edit</button>
+                    <button className="delete-btn" onClick={() => onDeleteExpense(expense.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+                  </tbody>
+                  <tfoot>
+                      <tr>
+                          <td colSpan={3}>Total :</td>
+                          <td>{ expenses.reduce((sum,expense) => Number(sum) + Number(expense.amount) , 0) }</td>
+                      </tr>
+                  </tfoot>
+          </table>
+        </div>
       </section>
     );
 }

@@ -39,7 +39,7 @@ export default function AddExpense({onAddExpense}) {
         navigate("/");
     }
   return (
-    <section>
+    <section className="card">
       <h2>Add New Expense</h2>
       <form onSubmit={putExpense}>
         <div className="form-group">

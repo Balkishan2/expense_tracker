@@ -34,7 +34,7 @@ export default function EditExpense({ expenses, onEditExpense }) {
     navigate("/");
   };
   return (
-    <section>
+    <section className="card">
       <h2>Edit Expense</h2>
       <form onSubmit={updateExpense}>
         <div className="form-group">

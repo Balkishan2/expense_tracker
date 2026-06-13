@@ -14,6 +14,7 @@ function App() {
     const savedExp = localStorage.getItem("expenses");
     return savedExp && savedExp !== "undefined" ? JSON.parse(savedExp) : [];
   });
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -43,9 +44,10 @@ function App() {
     };
   return (
     <>
-        <Navbar />
+        <Navbar onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)} />
+        {isSidebarOpen && <div className="sidebar-overlay" onClick={() => setIsSidebarOpen(false)}></div>}
         <div className="main-container">
-          <SideBar />
+          <SideBar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
           <main className="content">
             <Routes>
               <Route
